@@ -1,0 +1,25 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-zinc-900 bg-zinc-950 text-zinc-500 text-xs py-12">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center space-x-2">
+      <img src="/favicon.svg" alt="Iberian Web" class="w-8 h-8 object-contain" />
+
+      <span class="font-bold text-zinc-300">Iberian Web</span>
+
+      <span>&copy; {currentYear} &mdash; Todos los derechos reservados.</span>
+    </div>
+
+    <div class="flex space-x-6 text-zinc-500">
+      <a href="/terms" class="hover:text-zinc-300 transition-colors">
+        Términos
+      </a>
+
+      <a href="/privacy" class="hover:text-zinc-300 transition-colors">
+        Privacidad
+      </a>
+    </div>
+  </div>
+</footer>

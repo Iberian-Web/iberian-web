@@ -1,0 +1,178 @@
+---
+import Layout from "../layouts/layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+
+const stats = [
+  { value: "5+", label: "Años de experiencia" },
+  { value: "50+", label: "Proyectos entregados" },
+  { value: "12", label: "Países con clientes activos" },
+  { value: "38%", label: "Incremento medio de conversión" },
+];
+
+const values = [
+  {
+    icon: "◈",
+    title: "Precisión ante todo",
+    description:
+      "Cada línea de código tiene un propósito. Rechazamos la deuda técnica desde el día uno y entregamos trabajo que resiste el paso del tiempo sin necesidad de refactorizaciones costosas.",
+  },
+  {
+    icon: "◻",
+    title: "Minimalismo funcional",
+    description:
+      "La simplicidad no es una limitación; es la forma más alta de sofisticación. Eliminamos todo lo superfluo para que lo esencial brille y el usuario llegue a la acción deseada sin fricción.",
+  },
+  {
+    icon: "◎",
+    title: "Resultados medibles",
+    description:
+      "El diseño es hermoso, pero el rendimiento convierte. Cada decisión de arquitectura y UX está respaldada por datos y orientada a métricas de negocio reales: conversión, retención y velocidad.",
+  },
+];
+
+const whyUs = [
+  "Cero WordPress o plantillas. Código limpio y 100% a medida, sin plugins pesados que se rompen solos.",
+  "Velocidad de carga instantánea. Eliminamos el código basura para que tu web vuele y posicione mejor en Google.",
+  "Seguridad nivel búnker. Al no usar sistemas comerciales masivos, tu web es inmune a los hackeos comunes.",
+  "Avances en tiempo real. Te damos un enlace privado para ver la evolución del proyecto directamente en tu navegador.",
+  "Mantenimiento continuo. No desaparecemos tras la entrega; nos encargamos de que todo funcione siempre al 100%.",
+];
+---
+
+<Layout>
+  <PageHeader eyebrow="Sobre nosotros">
+    <Fragment slot="title">Construimos la web que <span class="text-blue-400">tu marca merece</span>.</Fragment>
+    Iberian Web es un estudio de ingeniería web fundado en Granada. Combinamos artesanía técnica con pensamiento
+    estratégico para crear activos digitales que generan resultados reales, no solo presencias bonitas.
+  </PageHeader>
+
+  <!-- Stats -->
+  <section class="border-y border-zinc-900 bg-zinc-900/20">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+      {stats.map(({ value, label }) => (
+        <div class="text-center space-y-1.5">
+          <div class="text-3xl sm:text-4xl font-black text-blue-400">{value}</div>
+          <div class="text-xs text-zinc-400 tracking-widest uppercase font-medium">{label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Story / Approach -->
+  <section class="max-w-7xl mx-auto px-6 py-16 md:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="space-y-6">
+        <span class="text-xs font-bold tracking-widest text-blue-500 uppercase">Nuestra historia</span>
+
+        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+          Nacimos de la frustración con lo mediocre.
+        </h2>
+
+        <div class="space-y-4 text-zinc-300 font-light leading-relaxed">
+          <p>
+            Fundamos Iberian Web tras años trabajando en agencias donde la calidad técnica se sacrificaba por los plazos
+            y los presupuestos. Vimos demasiadas veces cómo marcas ambiciosas terminaban atrapadas en webs lentas,
+            imposibles de mantener y que no convertían.
+          </p>
+
+          <p>
+            Decidimos construir el estudio que nos habría gustado encontrar: pequeño, especializado, y obsesionado con
+            la excelencia. Sin plantillas. Sin atajos. Sin subcontratar lo que no sabemos hacer.
+          </p>
+
+          <p>
+            Hoy trabajamos con un número limitado de clientes para garantizar que cada proyecto recibe toda nuestra
+            atención y rigor técnico.
+          </p>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-8 bg-zinc-900/40 border border-zinc-900 rounded-xl space-y-4">
+          <div class="text-5xl font-black text-blue-400/20">"</div>
+
+          <p class="text-xl text-zinc-200 font-light leading-relaxed italic">
+            Trabajamos con un número limitado de proyectos simultáneos por diseño, no por capacidad. Esa es la única
+            forma de entregar trabajo del que estemos genuinamente orgullosos.
+          </p>
+
+          <p class="text-sm text-blue-400 font-semibold">— Equipo fundador, Iberian Web</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="border-zinc-900 max-w-7xl mx-auto px-6" />
+
+  <!-- Values -->
+  <section class="max-w-7xl mx-auto px-6 py-16 md:py-24 space-y-16">
+    <div class="text-center space-y-3">
+      <span class="text-xs font-bold tracking-widest text-blue-500 uppercase">Nuestros valores</span>
+
+      <h2 class="text-3xl font-black tracking-tight text-white">Lo que nos define</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {values.map(({ icon, title, description }) => (
+        <div class="p-8 bg-zinc-900/30 border border-zinc-900 rounded-xl space-y-5 hover:border-blue-500/25 transition-all duration-300">
+          <span class="text-2xl text-blue-400/60">{icon}</span>
+
+          <h3 class="text-lg font-bold text-white tracking-tight">{title}</h3>
+
+          <p class="text-sm text-zinc-400 font-light leading-relaxed">{description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="border-zinc-900 max-w-7xl mx-auto px-6" />
+
+  <!-- Why Us -->
+  <section class="max-w-7xl mx-auto px-6 py-16 md:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div class="space-y-4">
+        <span class="text-xs font-bold tracking-widest text-blue-500 uppercase">Por qué elegirnos</span>
+
+        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">Lo que nos hace diferentes.</h2>
+
+        <p class="text-zinc-300 font-light leading-relaxed">
+          Hay cientos de agencias web. Aquí está lo que encontrarás en Iberian Web que difícilmente encontrarás en otro
+          lugar.
+        </p>
+      </div>
+
+      <ul class="space-y-4">
+        {whyUs.map((item, i) => (
+          <li class="flex items-start gap-4 text-zinc-300 font-light">
+            <span class="text-blue-400 font-black text-sm mt-0.5 shrink-0">0{i + 1}</span>
+
+            <span class="leading-relaxed">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <hr class="border-zinc-900 max-w-7xl mx-auto px-6" />
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-6 py-16 md:py-24 text-center space-y-6">
+    <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white">¿Trabajamos juntos?</h2>
+
+    <p class="text-zinc-400 font-light max-w-lg mx-auto">
+      Cuéntanos tu proyecto y encontraremos la mejor forma de hacerlo realidad. Primera consultoría siempre sin coste.
+    </p>
+
+    <a
+      href="/contact"
+      class="inline-flex items-center space-x-2 px-8 py-4 bg-blue-500 text-zinc-950 font-bold rounded-md hover:bg-blue-400 transition-all text-sm tracking-wide"
+      style="box-shadow: 0 8px 24px rgba(59,130,246,0.2);"
+    >
+      <span>Iniciar Proyecto</span>
+
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+  </section>
+</Layout>

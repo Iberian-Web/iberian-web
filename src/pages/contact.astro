@@ -1,0 +1,270 @@
+---
+import Layout from "../layouts/layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+
+const projectTypes = [
+  "Sitio corporativo / Landing page",
+  "Plataforma SaaS / Web App",
+  "E-commerce",
+  "Optimización / Rediseño",
+  "Infraestructura & DevOps",
+  "Otro",
+];
+
+const infoBlocks = [
+  {
+    label: "Respuesta garantizada",
+    value: "Menos de 24 horas",
+    icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+  {
+    label: "Consultoría inicial",
+    value: "Sin coste ni compromiso",
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+  {
+    label: "Ubicación",
+    value: "Granada · Trabajo en remoto",
+    icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z",
+  },
+  {
+    label: "Disponibilidad",
+    value: "Plazas limitadas por trimestre",
+    icon: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z",
+  },
+];
+
+const inputClass =
+  "w-full bg-zinc-900/60 border border-zinc-800 rounded-lg px-4 py-3 text-white text-sm placeholder-zinc-600 focus:outline-none focus:border-blue-500/50 focus:bg-zinc-900 transition-all";
+---
+
+<Layout>
+  <section class="py-16 md:py-24">
+    <PageHeader
+      eyebrow="Contacto"
+      class="pt-0 pb-0 mb-12 md:mb-20 space-y-5"
+      titleClass="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight"
+      descriptionClass="max-w-xl"
+    >
+      <Fragment slot="title">¿Listo para elevar tu <span class="text-blue-400">presencia digital</span>?</Fragment>
+      Cuéntanos tu proyecto. En menos de 24 horas tendrás una respuesta con nuestras primeras impresiones y un plan de
+      acción concreto.
+    </PageHeader>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+        <!-- Left: Info -->
+        <div class="lg:col-span-2 space-y-10">
+          <!-- Email direct -->
+          <div class="space-y-3">
+            <p class="text-xs font-bold tracking-widest text-zinc-500 uppercase">Email directo</p>
+
+            <a
+              href="mailto:hola@iberianweb.com"
+              class="inline-flex items-center gap-3 text-xl font-semibold text-white group hover:text-blue-400 transition-colors"
+            >
+              hola@iberianweb.com
+              <svg
+                class="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="h-px bg-zinc-900"></div>
+
+          <!-- Info blocks -->
+          <div class="space-y-6">
+            {infoBlocks.map(({ label, value, icon }) => (
+              <div class="flex items-start gap-4">
+                <div class="w-9 h-9 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center shrink-0">
+                  <svg class="w-4 h-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icon} />
+                  </svg>
+                </div>
+
+                <div>
+                  <p class="text-xs font-bold tracking-widest text-zinc-500 uppercase mb-0.5">{label}</p>
+                  <p class="text-white font-medium text-sm">{value}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div class="h-px bg-zinc-900"></div>
+
+          <!-- Social proof note -->
+          <div class="p-6 bg-blue-500/6 border border-blue-500/15 rounded-xl space-y-2">
+            <div class="flex gap-1">
+              {Array.from({ length: 5 }).map(() => (
+                <svg class="w-3.5 h-3.5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+
+            <p class="text-sm text-zinc-300 font-light leading-relaxed italic">
+              "Respondieron en 3 horas con un análisis técnico detallado de nuestra web antes de cobrar nada. Eso dice
+              mucho de cómo trabajan."
+            </p>
+
+            <p class="text-xs text-blue-500/80 font-semibold">— Cliente Growth, sector financiero</p>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="lg:col-span-3">
+          <div id="contact-success" class="hidden h-full items-center justify-center">
+            <div class="text-center space-y-5 py-16">
+              <div class="w-16 h-16 rounded-2xl bg-blue-500/10 border border-blue-500/25 flex items-center justify-center mx-auto">
+                <svg class="w-8 h-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+
+              <div class="space-y-2">
+                <h3 class="text-2xl font-black text-white">Mensaje recibido</h3>
+
+                <p class="text-zinc-400 font-light">
+                  Te responderemos en menos de 24 horas con nuestras primeras impresiones.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <form
+            id="contact-form"
+            class="relative bg-zinc-900/30 border border-zinc-900 rounded-2xl p-8 sm:p-10 space-y-6"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 h-px rounded-t-2xl"
+              style="background: linear-gradient(90deg, transparent, rgba(59,130,246,0.3), transparent);"
+            ></div>
+
+            <h2 class="text-xl font-black text-white">Cuéntanos tu proyecto</h2>
+
+            <div class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-1.5">
+                  <label for="name" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+                    Nombre *
+                  </label>
+
+                  <input id="name" type="text" name="name" placeholder="Tu nombre" required class={inputClass} />
+                </div>
+
+                <div class="space-y-1.5">
+                  <label for="email" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+                    Email *
+                  </label>
+
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="tu@empresa.com"
+                    required
+                    class={inputClass}
+                  />
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <label for="company" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+                  Empresa / Marca
+                </label>
+
+                <input id="company" type="text" name="company" placeholder="Nombre de tu empresa" class={inputClass} />
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-1.5">
+                  <label for="projectType" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+                    Tipo de proyecto
+                  </label>
+
+                  <select id="projectType" name="projectType" class={`${inputClass} cursor-pointer`}>
+                    <option value="" class="bg-zinc-900">
+                      Seleccionar...
+                    </option>
+
+                    {projectTypes.map((type) => (
+                      <option value={type} class="bg-zinc-900">
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label for="budget" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+                    Presupuesto orientativo
+                  </label>
+
+                  <select id="budget" name="budget" class={`${inputClass} cursor-pointer`}>
+                    <option value="" class="bg-zinc-900">
+                      Seleccionar...
+                    </option>
+
+                    {["Menos de 1.500€", "1.500€ – 5.000€", "5.000€ – 15.000€", "Más de 15.000€", "Por definir"].map(
+                      (budget) => (
+                        <option value={budget} class="bg-zinc-900">
+                          {budget}
+                        </option>
+                      ),
+                    )}
+                  </select>
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <label for="message" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest">
+                  Cuéntanos más *
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="¿Qué problema quieres resolver? ¿Cuál es tu situación actual? ¿Tienes plazo o fecha de lanzamiento?"
+                  required
+                  class={`${inputClass} resize-none`}
+                ></textarea>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full py-4 bg-blue-500 text-zinc-950 font-bold rounded-lg text-sm hover:bg-blue-400 transition-all disabled:opacity-40 disabled:cursor-not-allowed tracking-wide"
+              style="box-shadow: 0 8px 24px rgba(59,130,246,0.2);"
+            >
+              Enviar mensaje →
+            </button>
+
+            <p class="text-xs text-zinc-600 text-center">
+              Sin spam. Sin burocracia. Respuesta directa del equipo en menos de 24h.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.querySelector("#contact-form");
+    const success = document.querySelector("#contact-success");
+
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      form.classList.add("hidden");
+      success?.classList.remove("hidden");
+      success?.classList.add("flex");
+    });
+  </script>
+</Layout>

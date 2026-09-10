@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/layout.astro";
+---
+
+<Layout>
+  <section class="relative min-h-[75vh] flex flex-col items-center justify-center px-6 py-16 md:py-24 text-center overflow-hidden">
+    <!-- Fondo con degradado radial coherente con los demás headers -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(59,130,246,0.07) 0%, transparent 80%);"
+    ></div>
+
+    <div class="relative space-y-6 max-w-2xl mx-auto">
+      <!-- Eyebrow -->
+      <span class="text-xs font-bold tracking-widest text-blue-500 uppercase">Error 404</span>
+
+      <!-- Título principal -->
+      <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.05]">
+        Parece que te has <span class="text-blue-400">perdido</span>.
+      </h1>
+
+      <!-- Descripción -->
+      <p class="text-zinc-300 font-light leading-relaxed text-lg max-w-md mx-auto">
+        La página que buscas no existe, ha cambiado de dirección o nunca formó parte de nuestra arquitectura.
+      </p>
+
+      <!-- Botón de retorno al inicio -->
+      <div class="pt-6">
+        <a
+          href="/"
+          class="inline-flex items-center space-x-2 px-8 py-4 bg-blue-500 text-zinc-950 font-bold rounded-md hover:bg-blue-400 transition-all text-sm tracking-wide group"
+          style="box-shadow: 0 8px 24px rgba(59,130,246,0.2);"
+        >
+          <svg
+            class="w-4 h-4 group-hover:-translate-x-1 transition-transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          <span>Volver al inicio</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

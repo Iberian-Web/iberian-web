@@ -1,0 +1,120 @@
+---
+const navLinks = [
+  { href: "/services", label: "Servicios" },
+  { href: "/about", label: "Nosotros" },
+];
+---
+
+<header class="sticky top-0 z-50 backdrop-blur-md bg-zinc-950/85 border-b border-zinc-900">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center space-x-3">
+      <img src="/favicon.svg" alt="Iberian Web" class="w-12 h-12 object-contain" />
+
+      <span class="text-xl font-black tracking-tight text-white">Iberian Web</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-400">
+      {navLinks.map(({ href, label }) => (
+        <a href={href} class="hover:text-white transition-colors">
+          {label}
+        </a>
+      ))}
+
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center px-4 py-2 bg-blue-500 hover:bg-blue-400 text-zinc-950 font-bold rounded-md transition-all text-sm"
+      >
+        Iniciar Proyecto
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-button"
+      class="md:hidden relative w-10 h-10 text-zinc-400 hover:text-white focus:outline-none flex items-center justify-center"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <div class="absolute w-6 h-5 flex flex-col justify-between items-center">
+        <span
+          id="menu-line-1"
+          class="h-0.5 w-full bg-current rounded transform transition-all duration-300 ease-in-out"
+        ></span>
+        <span id="menu-line-2" class="h-0.5 w-full bg-current rounded transition-all duration-300 ease-in-out"></span>
+        <span
+          id="menu-line-3"
+          class="h-0.5 w-full bg-current rounded transform transition-all duration-300 ease-in-out"
+        ></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Mobile Nav Drawer -->
+  <div
+    id="mobile-menu"
+    class="md:hidden grid grid-rows-[0fr] opacity-0 transition-all duration-300 ease-in-out bg-zinc-950 border-b border-transparent"
+  >
+    <div class="overflow-hidden">
+      <div class="px-6 py-6 space-y-4 text-center">
+        {navLinks.map(({ href, label }) => (
+          <a href={href} class="block text-zinc-300 hover:text-white text-base py-2 transition-colors">
+            {label}
+          </a>
+        ))}
+
+        <div class="h-px bg-zinc-900"></div>
+
+        <a
+          href="/contact"
+          class="block text-center w-full px-4 py-3 bg-blue-500 text-zinc-950 rounded-md font-bold text-sm transition-transform active:scale-95"
+        >
+          Iniciar Proyecto
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const initializeMobileMenu = () => {
+    const button = document.getElementById("mobile-menu-button");
+    const menu = document.getElementById("mobile-menu");
+    const line1 = document.getElementById("menu-line-1");
+    const line2 = document.getElementById("menu-line-2");
+    const line3 = document.getElementById("menu-line-3");
+
+    if (!button || !menu || button.dataset.menuReady) return;
+
+    const setMenuState = (isOpen: boolean) => {
+      button.setAttribute("aria-expanded", String(isOpen));
+      menu.classList.toggle("grid-rows-[0fr]", !isOpen);
+      menu.classList.toggle("opacity-0", !isOpen);
+      menu.classList.toggle("border-transparent", !isOpen);
+      menu.classList.toggle("grid-rows-[1fr]", isOpen);
+      menu.classList.toggle("opacity-100", isOpen);
+      menu.classList.toggle("border-zinc-900", isOpen);
+      line1?.classList.toggle("rotate-45", isOpen);
+      line1?.classList.toggle("translate-y-2.25", isOpen);
+      line2?.classList.toggle("opacity-0", isOpen);
+      line2?.classList.toggle("scale-0", isOpen);
+      line3?.classList.toggle("-rotate-45", isOpen);
+      line3?.classList.toggle("-translate-y-2.25", isOpen);
+    };
+
+    button.addEventListener("click", () => {
+      setMenuState(button.getAttribute("aria-expanded") !== "true");
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenuState(false));
+    });
+
+    button.dataset.menuReady = "true";
+  };
+
+  initializeMobileMenu();
+  document.addEventListener("astro:page-load", initializeMobileMenu);
+</script>

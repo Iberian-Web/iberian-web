@@ -1,0 +1,329 @@
+---
+import Layout from "../layouts/layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+
+const capabilities = [
+  {
+    icon: "M13 10V3L4 14h7v7l9-11h-7z",
+    title: "Velocidad y rendimiento",
+    description:
+      "Creamos webs rápidas y fluidas que cargan enseguida en cualquier dispositivo. Así tus clientes pueden navegar sin esperas y llegar antes a lo que necesitan.",
+  },
+  {
+    icon: "M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z",
+    title: "Una base preparada para crecer",
+    description:
+      "Construimos una base sólida y flexible para que puedas añadir nuevas secciones, funcionalidades o servicios a medida que tu negocio avance, sin tener que empezar de cero.",
+  },
+  {
+    icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-03-9s1.343-9 3-9m-9 9h18",
+    title: "Tu web siempre disponible",
+    description:
+      "Ponemos tu web en marcha de forma segura y nos aseguramos de que funcione correctamente en todo momento, tanto para clientes de aquí como para visitantes de cualquier lugar.",
+  },
+  {
+    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
+    title: "Diseño claro y fácil de usar",
+    description:
+      "Diseñamos interfaces limpias y fáciles de entender, para que tus visitantes encuentren rápidamente la información que buscan y sepan cuál es el siguiente paso.",
+  },
+  {
+    icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
+    title: "Más visibilidad en Google",
+    description:
+      "Preparamos tu web para que los buscadores la entiendan y la muestren a las personas que buscan tus servicios, mejorando su visibilidad de forma natural.",
+  },
+  {
+    icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z",
+    title: "Seguridad y tranquilidad",
+    description:
+      "Protegemos tu web y la información de tus clientes con buenas prácticas de seguridad, actualizaciones y una configuración fiable desde el primer día.",
+  },
+];
+
+const steps = [
+  {
+    number: "01",
+    phase: "Análisis",
+    title: "Estudio de tu proyecto",
+    description:
+      "Hablamos sobre tus objetivos. Si ya tienes una web, revisamos qué fallos tiene y cómo mejorarla. Si empiezas desde cero, planificamos la mejor estructura para tu negocio.",
+  },
+  {
+    number: "02",
+    phase: "Estructura",
+    title: "Estructura y Estilo",
+    description:
+      "Montamos los cimientos y el aspecto visual directamente en el navegador. Podrás ver en una URL de prueba cómo se distribuye todo y cómo va quedando el estilo real.",
+  },
+  {
+    number: "03",
+    phase: "Desarrollo",
+    title: "Optimización y Detalles",
+    description:
+      "Con la estructura clara, pulimos las animaciones, conectamos los formularios y programamos los detalles internos. Dejamos la web ultra rápida y perfecta para móviles.",
+  },
+  {
+    number: "04",
+    phase: "Lanzamiento",
+    title: "Puesta en marcha",
+    description:
+      "Publicamos tu web en internet de forma segura. Nos aseguramos de que todo funcione al 100% y te acompañamos los primeros días para resolver cualquier duda.",
+  },
+];
+
+const plans = [
+  {
+    name: "Starter",
+    price: "Desde 1.200€",
+    description:
+      "Web corporativa profesional, ultra-rápida y limpia. Ideal para empresas que quieren mostrar sus servicios de forma impecable sin necesidad de cambiar el contenido constantemente.",
+    features: [
+      "Desarrollo a medida con Astro / Vite",
+      "Hasta 5 secciones/páginas independientes",
+      "Alojamiento global en Cloudflare",
+      "Formulario de contacto con protección antispam",
+      "Optimización SEO base para buscadores",
+      "Soporte técnico y mantenimiento base mensual",
+    ],
+    cta: "Iniciar proyecto estático",
+    highlight: false,
+  },
+  {
+    name: "Growth",
+    price: "Desde 2.500€",
+    description:
+      "Para negocios que necesitan autonomía. Incluye un panel de control para añadir, editar o borrar tus propios datos (catálogos, listados, artículos, servicios) de forma instantánea.",
+    features: [
+      "Todo lo incluido en el plan Starter",
+      "Panel autogestionable a medida",
+      "Gestión dinámica de contenido (CRUD de datos)",
+      "Filtros, buscadores o categorías inteligentes",
+      "Videoguía personalizada para el uso del panel",
+      "Mantenimiento técnico y soporte del gestor",
+    ],
+    cta: "Montar web con panel",
+    highlight: true,
+  },
+  {
+    name: "Personalizado",
+    price: "Solicitar presupuesto",
+    description:
+      "Soluciones avanzadas y software web sin límites. Diseñado para proyectos complejos que requieren pasarelas de pago, gestión de usuarios o lógicas de negocio exclusivas.",
+    features: [
+      "Desarrollo de aplicaciones y plataformas complejas",
+      "Integración de pagos 100% seguros (Stripe, Bizum, etc.)",
+      "Sistemas de usuarios, perfiles y bases de datos serias",
+      "Automatización de procesos (facturas, correos, pedidos)",
+      "Conexión con APIs y herramientas externas",
+      "Mantenimiento avanzado, seguridad y copias de seguridad",
+    ],
+    cta: "Diseñar solución a medida",
+    highlight: false,
+  },
+];
+
+const faqs = [
+  {
+    q: "¿Cuánto tiempo tarda en desarrollarse la web?",
+    a: "Depende del alcance del proyecto. Un desarrollo básico puede estar listo en unos días o un par de semanas, mientras que los proyectos con paneles autogestionables o lógicas a medida suelen estimarse entre 3 y 6 semanas. Los plazos son orientativos y se adaptan a la fluidez del desarrollo y la entrega del material.",
+  },
+  {
+    q: "¿Cómo definimos el aspecto visual de la web?",
+    a: "Trabajamos con un proceso ágil y directo. Nos compartes referencias de webs que te gusten, competidores o la línea estética que buscas. Con esa base, maquetamos directamente en un entorno de desarrollo privado para que puedas ver cómo cobra vida la web real en el navegador y pulir detalles sobre la marcha.",
+  },
+  {
+    q: "¿Qué ocurre si necesito cambiar o añadir cosas en el futuro?",
+    a: "Nuestra arquitectura web es completamente modular. Si en el futuro tu negocio evoluciona y necesitas añadir un catálogo de datos, integrar pasarelas de pago o crear nuevas secciones, podemos escalar tu plataforma actual e implementar los nuevos módulos sin necesidad de rehacer el proyecto desde cero.",
+  },
+  {
+    q: "¿Qué incluye el servicio de mantenimiento y soporte?",
+    a: "Todos nuestros planes incluyen cobertura de mantenimiento técnico. Nos encargamos de la supervisión de la infraestructura, optimización de velocidad, seguridad frente a ataques y soporte para resolver cualquier duda o incidencia, asegurando que tu plataforma funcione siempre al 100%.",
+  },
+  {
+    q: "¿Qué material necesito aportar para empezar el proyecto?",
+    a: "Para comenzar la fase de desarrollo, necesitaremos la información básica de tu negocio: los textos que quieras incluir, tus imágenes, logotipos y los accesos a tu dominio actual si ya dispones de uno. Nosotros nos encargamos de estructurar y optimizar todo el contenido.",
+  },
+  {
+    q: "¿Trabajáis con marcas o empresas de fuera de la región?",
+    a: "Sí, operamos de forma 100% remota y digital. Mantenemos una comunicación constante y fluida mediante llamadas, correo o mensajería, compartiendo contigo un enlace de pruebas privado para que puedas seguir los avances de la web en tiempo real desde cualquier lugar.",
+  },
+];
+---
+
+<Layout>
+  <PageHeader eyebrow="Servicios">
+    <Fragment slot="title">Soluciones web de <span class="text-blue-400">alto rendimiento</span>.</Fragment>
+    No creamos plantillas genéricas. Cada proyecto es una solución de ingeniería a medida, orientada a resultados de
+    negocio medibles.
+  </PageHeader>
+
+  <hr class="border-zinc-900 max-w-7xl mx-auto px-6" />
+
+  <!-- Capabilities -->
+  <section class="max-w-7xl mx-auto px-6 py-16 md:py-24">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 items-start">
+      <div class="lg:col-span-1 space-y-4 lg:sticky lg:top-32">
+        <span class="text-xs font-bold tracking-widest text-blue-500 uppercase">Capacidades</span>
+
+        <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">Lo que hacemos.</h2>
+
+        <p class="text-zinc-300 font-light leading-relaxed">
+          Un stack técnico moderno y una metodología probada. Cada capacidad está orientada a un resultado de negocio
+          concreto.
+        </p>
+
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors group mt-2"
+        >
+          <span>Consultar disponibilidad</span>
+          <svg
+            class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {capabilities.map(({ icon, title, description }) => (
+          <div class="group p-7 bg-zinc-900/30 border border-zinc-900 rounded-xl space-y-4 hover:border-blue-500/25 transition-all duration-300">
+            <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={icon} />
+              </svg>
+            </div>
+
+            <h3 class="text-base font-bold text-white tracking-tight">{title}</h3>
+
+            <p class="text-sm text-zinc-400 font-light leading-relaxed">{description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <hr class="border-zinc-900 max-w-7xl mx-auto px-6" />
+
+  <!-- Process -->
+  <section class="max-w-7xl mx-auto px-6 py-16 md:py-24 space-y-16">
+    <div class="text-center max-w-2xl mx-auto space-y-3">
+      <span class="text-xs font-bold tracking-widest text-blue-500 uppercase">Metodología</span>
+
+      <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">Cómo trabajamos</h2>
+
+      <p class="text-zinc-300 font-light">
+        Un flujo de trabajo refinado de inicio a fin para asegurar precisión en cada entrega y total visibilidad para el
+        cliente.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      {steps.map(({ number, phase, title, description }) => (
+        <div class="group space-y-4 border-l-2 border-zinc-900 pl-6 md:border-l-0 md:border-t-2 md:pl-0 md:pt-6 hover:border-blue-500/40 transition-colors">
+          <span class="text-xs text-blue-500/70 font-semibold">
+            {number} / {phase}
+          </span>
+
+          <h3 class="text-base font-bold text-white">{title}</h3>
+
+          <p class="text-sm text-zinc-400 font-light leading-relaxed">{description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="border-zinc-900 max-w-7xl mx-auto px-6" />
+
+  <!-- Pricing -->
+  <section class="max-w-7xl mx-auto px-6 py-16 md:py-24 space-y-16">
+    <div class="text-center max-w-2xl mx-auto space-y-3">
+      <span class="text-xs font-bold tracking-widest text-blue-500 uppercase">Inversión</span>
+
+      <h2 class="text-3xl font-black tracking-tight text-white sm:text-4xl">Planes de proyecto</h2>
+
+      <p class="text-zinc-300 font-light">
+        Precios orientativos. Cada proyecto recibe un presupuesto detallado sin compromiso.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {plans.map(({ name, price, description, features, cta, highlight }) => (
+        <div
+          class={`relative rounded-xl p-8 space-y-8 flex flex-col ${
+            highlight ? "bg-blue-500/8 border-2 border-blue-500/40" : "bg-zinc-900/30 border border-zinc-900"
+          }`}
+        >
+          {highlight && (
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+              <span class="bg-blue-500 text-zinc-950 text-xs font-black px-4 py-1 rounded-full tracking-widest uppercase">
+                Más popular
+              </span>
+            </div>
+          )}
+
+          <div class="space-y-2">
+            <h3 class={`text-xl font-black tracking-tight ${highlight ? "text-blue-400" : "text-white"}`}>{name}</h3>
+
+            <div class="text-2xl font-bold text-white">{price}</div>
+
+            <p class="text-sm text-zinc-400 font-light leading-relaxed">{description}</p>
+          </div>
+
+          <ul class="space-y-3 flex-1">
+            {features.map((feature) => (
+              <li class="flex items-start gap-3 text-sm text-zinc-300">
+                <svg
+                  class={`w-4 h-4 mt-0.5 shrink-0 ${highlight ? "text-blue-400" : "text-blue-500/70"}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="/contact"
+            class={`block text-center py-3.5 rounded-md text-sm font-bold transition-all ${
+              highlight
+                ? "bg-blue-500 text-zinc-950 hover:bg-blue-400"
+                : "bg-zinc-900 border border-zinc-800 text-zinc-300 hover:text-white hover:bg-zinc-800"
+            }`}
+            style={highlight ? "box-shadow: 0 8px 24px rgba(59,130,246,0.2);" : undefined}
+          >
+            {cta}
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <hr class="border-zinc-900 max-w-7xl mx-auto px-6" />
+
+  <!-- FAQ -->
+  <section class="max-w-3xl mx-auto px-6 py-16 md:py-24 space-y-12">
+    <div class="text-center space-y-3">
+      <span class="text-xs font-bold tracking-widest text-blue-500 uppercase">FAQ</span>
+
+      <h2 class="text-3xl font-black tracking-tight text-white">Preguntas frecuentes</h2>
+    </div>
+
+    <div class="space-y-6">
+      {faqs.map(({ q, a }) => (
+        <div class="p-7 bg-zinc-900/30 border border-zinc-900 rounded-xl space-y-3 hover:border-zinc-800 transition-all">
+          <h3 class="text-base font-semibold text-white">{q}</h3>
+
+          <p class="text-sm text-zinc-400 font-light leading-relaxed">{a}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
