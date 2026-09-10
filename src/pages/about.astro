@@ -41,18 +41,18 @@ const whyUs = [
 
 <Layout>
   <PageHeader eyebrow="Sobre nosotros">
-    <Fragment slot="title">Construimos la web que <span class="text-blue-400">tu marca merece</span>.</Fragment>
+    <Fragment slot="title">Construimos la web que <span class="text-blue-600 dark:text-blue-400">tu marca merece</span>.</Fragment>
     Iberian Web es un estudio de ingeniería web fundado en Granada. Combinamos artesanía técnica con pensamiento
     estratégico para crear activos digitales que generan resultados reales, no solo presencias bonitas.
   </PageHeader>
 
   <!-- Stats -->
-  <section class="border-y border-zinc-900 bg-zinc-900/20">
+  <section class="border-y border-zinc-200 bg-zinc-50 dark:border-zinc-900 dark:bg-zinc-900/20">
     <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
       {stats.map(({ value, label }) => (
         <div class="text-center space-y-1.5">
-          <div class="text-3xl sm:text-4xl font-black text-blue-400">{value}</div>
-          <div class="text-xs text-zinc-400 tracking-widest uppercase font-medium">{label}</div>
+          <div class="text-3xl sm:text-4xl font-black text-blue-600 dark:text-blue-400">{value}</div>
+          <div class="text-xs text-zinc-500 dark:text-zinc-400 tracking-widest uppercase font-medium">{label}</div>
         </div>
       ))}
     </div>
@@ -62,13 +62,13 @@ const whyUs = [
   <section class="max-w-7xl mx-auto px-6 py-16 md:py-24">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
       <div class="space-y-6">
-        <span class="text-xs font-bold tracking-widest text-blue-500 uppercase">Nuestra historia</span>
+        <span class="text-xs font-bold tracking-widest text-blue-600 dark:text-blue-500 uppercase">Nuestra historia</span>
 
-        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+        <h2 class="text-3xl sm:text-4xl font-black text-zinc-900 dark:text-white tracking-tight">
           Nacimos de la frustración con lo mediocre.
         </h2>
 
-        <div class="space-y-4 text-zinc-300 font-light leading-relaxed">
+        <div class="space-y-4 text-zinc-600 dark:text-zinc-300 font-light leading-relaxed">
           <p>
             Fundamos Iberian Web tras años trabajando en agencias donde la calidad técnica se sacrificaba por los plazos
             y los presupuestos. Vimos demasiadas veces cómo marcas ambiciosas terminaban atrapadas en webs lentas,
@@ -88,54 +88,54 @@ const whyUs = [
       </div>
 
       <div class="space-y-4">
-        <div class="p-8 bg-zinc-900/40 border border-zinc-900 rounded-xl space-y-4">
-          <div class="text-5xl font-black text-blue-400/20">"</div>
+        <div class="p-8 bg-zinc-50 border border-zinc-200 rounded-xl space-y-4 dark:bg-zinc-900/40 dark:border-zinc-900">
+          <div class="text-5xl font-black text-blue-600/20 dark:text-blue-400/20">"</div>
 
-          <p class="text-xl text-zinc-200 font-light leading-relaxed italic">
+          <p class="text-xl text-zinc-700 dark:text-zinc-200 font-light leading-relaxed italic">
             Trabajamos con un número limitado de proyectos simultáneos por diseño, no por capacidad. Esa es la única
             forma de entregar trabajo del que estemos genuinamente orgullosos.
           </p>
 
-          <p class="text-sm text-blue-400 font-semibold">— Equipo fundador, Iberian Web</p>
+          <p class="text-sm text-blue-600 dark:text-blue-400 font-semibold">— Equipo fundador, Iberian Web</p>
         </div>
       </div>
     </div>
   </section>
 
-  <hr class="border-zinc-900 max-w-7xl mx-auto px-6" />
+  <hr class="border-zinc-200 dark:border-zinc-900 max-w-7xl mx-auto px-6" />
 
   <!-- Values -->
   <section class="max-w-7xl mx-auto px-6 py-16 md:py-24 space-y-16">
     <div class="text-center space-y-3">
-      <span class="text-xs font-bold tracking-widest text-blue-500 uppercase">Nuestros valores</span>
+      <span class="text-xs font-bold tracking-widest text-blue-600 dark:text-blue-500 uppercase">Nuestros valores</span>
 
-      <h2 class="text-3xl font-black tracking-tight text-white">Lo que nos define</h2>
+      <h2 class="text-3xl font-black tracking-tight text-zinc-900 dark:text-white">Lo que nos define</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {values.map(({ icon, title, description }) => (
-        <div class="p-8 bg-zinc-900/30 border border-zinc-900 rounded-xl space-y-5 hover:border-blue-500/25 transition-all duration-300">
-          <span class="text-2xl text-blue-400/60">{icon}</span>
+        <div class="p-8 bg-zinc-50 border border-zinc-200 rounded-xl space-y-5 hover:border-blue-500/25 dark:bg-zinc-900/30 dark:border-zinc-900 transition-all duration-300">
+          <span class="text-2xl text-blue-600/60 dark:text-blue-400/60">{icon}</span>
 
-          <h3 class="text-lg font-bold text-white tracking-tight">{title}</h3>
+          <h3 class="text-lg font-bold text-zinc-900 dark:text-white tracking-tight">{title}</h3>
 
-          <p class="text-sm text-zinc-400 font-light leading-relaxed">{description}</p>
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">{description}</p>
         </div>
       ))}
     </div>
   </section>
 
-  <hr class="border-zinc-900 max-w-7xl mx-auto px-6" />
+  <hr class="border-zinc-200 dark:border-zinc-900 max-w-7xl mx-auto px-6" />
 
   <!-- Why Us -->
   <section class="max-w-7xl mx-auto px-6 py-16 md:py-24">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
       <div class="space-y-4">
-        <span class="text-xs font-bold tracking-widest text-blue-500 uppercase">Por qué elegirnos</span>
+        <span class="text-xs font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase">Por qué elegirnos</span>
 
-        <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">Lo que nos hace diferentes.</h2>
+        <h2 class="text-3xl sm:text-4xl font-black text-zinc-900 dark:text-white tracking-tight">Lo que nos hace diferentes.</h2>
 
-        <p class="text-zinc-300 font-light leading-relaxed">
+        <p class="text-zinc-600 dark:text-zinc-300 font-light leading-relaxed">
           Hay cientos de agencias web. Aquí está lo que encontrarás en Iberian Web que difícilmente encontrarás en otro
           lugar.
         </p>
@@ -143,8 +143,8 @@ const whyUs = [
 
       <ul class="space-y-4">
         {whyUs.map((item, i) => (
-          <li class="flex items-start gap-4 text-zinc-300 font-light">
-            <span class="text-blue-400 font-black text-sm mt-0.5 shrink-0">0{i + 1}</span>
+          <li class="flex items-start gap-4 text-zinc-600 dark:text-zinc-300 font-light">
+            <span class="text-blue-600 dark:text-blue-400 font-black text-sm mt-0.5 shrink-0">0{i + 1}</span>
 
             <span class="leading-relaxed">{item}</span>
           </li>
@@ -153,19 +153,19 @@ const whyUs = [
     </div>
   </section>
 
-  <hr class="border-zinc-900 max-w-7xl mx-auto px-6" />
+  <hr class="border-zinc-200 dark:border-zinc-900 max-w-7xl mx-auto px-6" />
 
   <!-- CTA -->
   <section class="max-w-4xl mx-auto px-6 py-16 md:py-24 text-center space-y-6">
-    <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white">¿Trabajamos juntos?</h2>
+    <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-zinc-900 dark:text-white">¿Trabajamos juntos?</h2>
 
-    <p class="text-zinc-400 font-light max-w-lg mx-auto">
+    <p class="text-zinc-500 dark:text-zinc-400 font-light max-w-lg mx-auto">
       Cuéntanos tu proyecto y encontraremos la mejor forma de hacerlo realidad. Primera consultoría siempre sin coste.
     </p>
 
     <a
       href="/contact"
-      class="inline-flex items-center space-x-2 px-8 py-4 bg-blue-500 text-zinc-950 font-bold rounded-md hover:bg-blue-400 transition-all text-sm tracking-wide"
+      class="inline-flex items-center space-x-2 px-8 py-4 bg-blue-600 dark:bg-blue-400 text-white dark:text-zinc-950 font-bold rounded-md hover:bg-blue-700 dark:hover:bg-blue-500 transition-all text-sm tracking-wide"
       style="box-shadow: 0 8px 24px rgba(59,130,246,0.2);"
     >
       <span>Iniciar Proyecto</span>

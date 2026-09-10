@@ -20,8 +20,20 @@ const structuredData = {
 <html lang="es" class="scroll-smooth" style="font-family: 'Poppins', system-ui, sans-serif;">
   <head>
     <meta charset="UTF-8" />
+    <script is:inline>
+      function applyTheme(doc) {
+        const theme = localStorage.getItem("theme") || "light";
+        const isDark = theme === "dark";
+        doc.documentElement.classList.toggle("dark", isDark);
+        const favicon = doc.querySelector("#favicon");
+        favicon?.setAttribute("href", isDark ? "/favicon.svg?theme=dark" : "/favicon_black.svg?theme=light");
+      }
+
+      applyTheme(document);
+      document.addEventListener("astro:before-swap", (event) => applyTheme(event.newDocument));
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link id="favicon" rel="icon" type="image/svg+xml" href="/favicon_black.svg?theme=light" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -41,7 +53,7 @@ const structuredData = {
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
     <ClientRouter />
   </head>
-  <body class="min-h-screen bg-zinc-950 text-zinc-50 selection:bg-zinc-800 selection:text-white antialiased flex flex-col">
+  <body class="min-h-screen bg-white text-zinc-900 selection:bg-zinc-200 selection:text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 dark:selection:bg-zinc-800 dark:selection:text-white antialiased flex flex-col transition-colors">
     <Navbar />
     <main class="flex-1">
       <slot />

@@ -9,7 +9,7 @@ interface Props {
 const {
   eyebrow,
   class: className = "",
-  titleClass = "text-4xl sm:text-6xl font-black tracking-tight text-white leading-[1.05]",
+  titleClass = "text-4xl sm:text-6xl font-black tracking-tight text-zinc-900 dark:text-white leading-[1.05]",
   descriptionClass = "max-w-2xl text-lg",
 } = Astro.props;
 ---
@@ -20,13 +20,13 @@ const {
     style="background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(59,130,246,0.07) 0%, transparent 70%);"
   ></div>
 
-  <span class="relative text-xs font-bold tracking-widest text-blue-500 uppercase">{eyebrow}</span>
+  <span class="relative text-xs font-bold tracking-widest text-blue-600 dark:text-blue-500 uppercase">{eyebrow}</span>
 
   <h1 class={`relative ${titleClass}`}>
     <slot name="title" />
   </h1>
 
-  <p class={`relative text-zinc-300 mx-auto font-light leading-relaxed ${descriptionClass}`}>
+  <p class={`relative text-zinc-600 dark:text-zinc-300 mx-auto font-light leading-relaxed ${descriptionClass}`}>
     <slot />
   </p>
 </section>
