@@ -1,0 +1,158 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import LegalSection from "../components/LegalSection.astro";
+import { legal } from "../data/legal";
+---
+
+<Layout
+  title="Términos y condiciones — Iberian Web"
+  description="Condiciones de uso del sitio web de Iberian Web: titular, uso permitido, propiedad intelectual, responsabilidad y legislación aplicable."
+>
+  <PageHeader eyebrow="Legal">
+    <Fragment slot="title">Términos y <span class="text-blue-600 dark:text-blue-400">condiciones</span>.</Fragment>
+    Las reglas de uso de este sitio web, explicadas de forma clara y sin letra pequeña innecesaria.
+  </PageHeader>
+
+  <div class="max-w-3xl mx-auto px-6 pb-16 md:pb-24">
+    <p class="text-xs text-zinc-500 dark:text-zinc-400 tracking-widest uppercase font-medium pb-8">
+      Última actualización: {legal.lastUpdated}
+    </p>
+
+    <div class="divide-y divide-zinc-200 dark:divide-zinc-900 border-y border-zinc-200 dark:border-zinc-900">
+      <LegalSection title="1. Titular del sitio web" id="titular">
+        <p>
+          En cumplimiento del artículo 10 de la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio
+          Electrónico (LSSI-CE), te informamos de los datos del titular de este sitio web:
+        </p>
+        <ul>
+          <li><strong>Titular:</strong> {legal.owner}</li>
+          <li><strong>NIF / CIF:</strong> {legal.taxId}</li>
+          <li><strong>Domicilio:</strong> {legal.address}</li>
+          <li><strong>Correo electrónico:</strong> <a href={`mailto:${legal.email}`}>{legal.email}</a></li>
+          <li><strong>Sitio web:</strong> <a href={legal.url}>{legal.url}</a></li>
+        </ul>
+        <p>En adelante, "{legal.brand}", "nosotros" o "el titular".</p>
+      </LegalSection>
+
+      <LegalSection title="2. Objeto y aceptación" id="objeto">
+        <p>
+          Este sitio web presenta los servicios de ingeniería y desarrollo web de {legal.brand} y permite a las
+          personas interesadas ponerse en contacto con nosotros. Al navegar por él o utilizarlo, aceptas estos términos.
+          Si no estás de acuerdo con alguno de ellos, te pedimos que dejes de utilizar el sitio.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="3. Carácter informativo y contratación de servicios" id="servicios">
+        <p>
+          La información publicada sobre nuestros servicios, procesos, plazos y precios orientativos tiene carácter
+          meramente informativo y <strong>no constituye una oferta vinculante</strong>.
+        </p>
+        <p>
+          Este sitio no permite contratar ni pagar servicios en línea. Cualquier proyecto se formaliza por separado
+          mediante una propuesta o presupuesto aceptado por ambas partes (o un contrato), que fijará el alcance, el
+          precio, los plazos y las condiciones concretas. En lo relativo al servicio contratado, prevalecerá siempre lo
+          acordado en ese documento sobre lo indicado en estos términos.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="4. Uso permitido del sitio" id="uso">
+        <p>Te comprometes a utilizar el sitio de forma lícita y de buena fe. En particular, no debes:</p>
+        <ul>
+          <li>Intentar acceder sin autorización a sistemas, cuentas o datos asociados al sitio.</li>
+          <li>Sobrecargar, dañar o interferir en el funcionamiento normal del sitio o de sus servidores.</li>
+          <li>Usar el formulario o el correo de contacto para enviar spam, publicidad no solicitada o contenido ilícito.</li>
+          <li>Extraer contenido de forma masiva y automatizada, o suplantar a otras personas o entidades.</li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="5. Propiedad intelectual e industrial" id="propiedad">
+        <p>
+          Los textos, el diseño, el código, los logotipos, las imágenes y demás elementos de este sitio son propiedad de{" "}
+          {legal.brand} o se utilizan con la debida autorización, y están protegidos por la normativa de propiedad
+          intelectual e industrial.
+        </p>
+        <p>
+          No está permitida su reproducción, distribución, comunicación pública o transformación sin nuestra
+          autorización previa y por escrito, salvo en los casos que la ley permita expresamente. Las marcas y nombres de
+          terceros que puedan aparecer pertenecen a sus respectivos titulares.
+        </p>
+        <p>
+          Los derechos sobre los trabajos desarrollados para un cliente se regirán por lo que establezca el
+          correspondiente contrato o propuesta.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="6. Comunicaciones y plazos de respuesta" id="contacto">
+        <p>
+          Puedes contactar con nosotros por correo electrónico o mediante el formulario del sitio. Enviarnos una
+          consulta no crea, por sí sola, ninguna relación contractual ni obligación de aceptar un encargo.
+        </p>
+        <p>
+          Los plazos de respuesta que indicamos en el sitio (por ejemplo, "menos de 24 horas") expresan nuestro
+          objetivo de servicio y pueden variar según la carga de trabajo, los festivos o la complejidad de la consulta.
+          Los datos personales que nos facilites se tratarán conforme a nuestra <a href="/privacy">Política de privacidad</a>.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="7. Exclusión de responsabilidad" id="responsabilidad">
+        <ul>
+          <li>
+            <strong>Contenidos.</strong> Nos esforzamos por mantener la información actualizada y correcta, pero el
+            sitio se ofrece "tal cual", sin garantías de que esté libre de errores u omisiones.
+          </li>
+          <li>
+            <strong>Resultados y métricas.</strong> Las cifras, testimonios y casos que aparecen en el sitio son
+            ilustrativos y corresponden a proyectos concretos: no garantizan resultados idénticos en otros proyectos.
+            Cualquier compromiso de nivel de servicio (disponibilidad, tiempos de carga, etc.) solo será vinculante si
+            se recoge por escrito en el contrato o la propuesta correspondiente.
+          </li>
+          <li>
+            <strong>Disponibilidad.</strong> No garantizamos el acceso continuo e ininterrumpido al sitio, que puede
+            verse afectado por tareas de mantenimiento, fallos técnicos o causas ajenas a nuestro control.
+          </li>
+        </ul>
+        <p>
+          Todo ello sin perjuicio de las responsabilidades que, conforme a la ley, no puedan excluirse ni limitarse (por
+          ejemplo, en caso de dolo o de derechos irrenunciables de las personas consumidoras).
+        </p>
+      </LegalSection>
+
+      <LegalSection title="8. Enlaces a sitios de terceros" id="enlaces">
+        <p>
+          Este sitio puede contener enlaces a páginas de terceros. No controlamos su contenido ni sus políticas y, por
+          tanto, no nos hacemos responsables de ellos. Te recomendamos revisar sus condiciones antes de utilizarlos.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="9. Privacidad y cookies" id="privacidad">
+        <p>
+          Este sitio no utiliza cookies. Puedes consultar el detalle de cómo tratamos los datos personales en nuestra{" "}
+          <a href="/privacy">Política de privacidad</a>.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="10. Modificaciones" id="modificaciones">
+        <p>
+          Podemos actualizar estos términos para adaptarlos a cambios legales o a cambios en el sitio. La versión
+          vigente será siempre la publicada en esta página, con su fecha de última actualización.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="11. Legislación aplicable y jurisdicción" id="legislacion">
+        <p>
+          Estos términos se rigen por la legislación española. Para cualquier controversia que pudiera derivarse del uso
+          del sitio, las partes se someten a los juzgados y tribunales de {legal.city}, salvo que la normativa aplicable
+          establezca otro fuero, como ocurre cuando quien utiliza el sitio es una persona consumidora, en cuyo caso serán
+          competentes los tribunales que la ley le reconozca.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="12. Contacto" id="contacto-final">
+        <p>
+          Si tienes cualquier duda sobre estos términos, escríbenos a <a href={`mailto:${legal.email}`}>{legal.email}</a>.
+        </p>
+      </LegalSection>
+    </div>
+  </div>
+</Layout>

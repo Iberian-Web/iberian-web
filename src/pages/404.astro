@@ -1,5 +1,6 @@
 ---
-import Layout from "../layouts/layout.astro";
+import Layout from "../layouts/Layout.astro";
+import ArrowLeft from "@lucide/astro/icons/arrow-left";
 ---
 
 <Layout>
@@ -31,14 +32,7 @@ import Layout from "../layouts/layout.astro";
           class="inline-flex items-center space-x-2 px-8 py-4 bg-blue-500 text-zinc-950 font-bold rounded-md hover:bg-blue-600 transition-all text-sm tracking-wide group"
           style="box-shadow: 0 8px 24px rgba(59,130,246,0.2);"
         >
-          <svg
-            class="w-4 h-4 group-hover:-translate-x-1 transition-transform"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
+          <ArrowLeft class="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           <span>Volver al inicio</span>
         </a>
       </div>

@@ -1,6 +1,10 @@
 ---
-import Layout from "../layouts/layout.astro";
+import Layout from "../layouts/Layout.astro";
 import PageHeader from "../components/PageHeader.astro";
+import ArrowRight from "@lucide/astro/icons/arrow-right";
+import Minimize2 from "@lucide/astro/icons/minimize-2";
+import Target from "@lucide/astro/icons/target";
+import TrendingUp from "@lucide/astro/icons/trending-up";
 
 const stats = [
   { value: "5+", label: "Años de experiencia" },
@@ -11,19 +15,19 @@ const stats = [
 
 const values = [
   {
-    icon: "◈",
+    icon: Target,
     title: "Precisión ante todo",
     description:
       "Cada línea de código tiene un propósito. Rechazamos la deuda técnica desde el día uno y entregamos trabajo que resiste el paso del tiempo sin necesidad de refactorizaciones costosas.",
   },
   {
-    icon: "◻",
+    icon: Minimize2,
     title: "Minimalismo funcional",
     description:
       "La simplicidad no es una limitación; es la forma más alta de sofisticación. Eliminamos todo lo superfluo para que lo esencial brille y el usuario llegue a la acción deseada sin fricción.",
   },
   {
-    icon: "◎",
+    icon: TrendingUp,
     title: "Resultados medibles",
     description:
       "El diseño es hermoso, pero el rendimiento convierte. Cada decisión de arquitectura y UX está respaldada por datos y orientada a métricas de negocio reales: conversión, retención y velocidad.",
@@ -113,9 +117,9 @@ const whyUs = [
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {values.map(({ icon, title, description }) => (
+      {values.map(({ icon: Icon, title, description }) => (
         <div class="p-8 bg-zinc-50 border border-zinc-200 rounded-xl space-y-5 hover:border-blue-500/25 dark:bg-zinc-900/30 dark:border-zinc-900 transition-all duration-300">
-          <span class="text-2xl text-blue-600/60 dark:text-blue-400/60">{icon}</span>
+          <Icon class="w-7 h-7 text-blue-600/60 dark:text-blue-400/60" />
 
           <h3 class="text-lg font-bold text-zinc-900 dark:text-white tracking-tight">{title}</h3>
 
@@ -170,9 +174,7 @@ const whyUs = [
     >
       <span>Iniciar Proyecto</span>
 
-      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-      </svg>
+      <ArrowRight class="w-4 h-4" />
     </a>
   </section>
 </Layout>

@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  id?: string;
+}
+
+const { title, id } = Astro.props;
+---
+
+<section id={id} class="py-8 space-y-4 scroll-mt-28">
+  <h2 class="text-xl sm:text-2xl font-black tracking-tight text-zinc-900 dark:text-white">{title}</h2>
+
+  <div
+    class="space-y-4 text-zinc-600 dark:text-zinc-300 font-light leading-relaxed [&_a]:text-blue-600 dark:[&_a]:text-blue-400 [&_a:hover]:underline [&_strong]:font-semibold [&_strong]:text-zinc-900 dark:[&_strong]:text-white [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-2"
+  >
+    <slot />
+  </div>
+</section>

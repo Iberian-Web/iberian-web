@@ -1,0 +1,185 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import LegalSection from "../components/LegalSection.astro";
+import Cookie from "@lucide/astro/icons/cookie";
+import EyeOff from "@lucide/astro/icons/eye-off";
+import Mail from "@lucide/astro/icons/mail";
+import { legal } from "../data/legal";
+
+const highlights = [
+  {
+    icon: Cookie,
+    title: "Sin cookies",
+    description: "No usamos cookies propias ni de terceros, así que no verás ningún banner de consentimiento.",
+  },
+  {
+    icon: EyeOff,
+    title: "Sin seguimiento",
+    description: "Sin analítica, publicidad, píxeles ni perfiles. No sabemos quién visita el sitio ni qué hace en él.",
+  },
+  {
+    icon: Mail,
+    title: "Solo lo que nos envías",
+    description: "Únicamente tratamos los datos que decides compartir con nosotros al escribirnos.",
+  },
+];
+---
+
+<Layout
+  title="Política de privacidad — Iberian Web"
+  description="Política de privacidad de Iberian Web: sin cookies ni seguimiento. Qué datos tratamos al contactar con nosotros, con qué finalidad y cuáles son tus derechos."
+>
+  <PageHeader eyebrow="Legal">
+    <Fragment slot="title">Política de <span class="text-blue-600 dark:text-blue-400">privacidad</span>.</Fragment>
+    Este sitio no usa cookies ni herramientas de seguimiento. Aquí te contamos exactamente qué datos tratamos y por qué.
+  </PageHeader>
+
+  <div class="max-w-3xl mx-auto px-6 pb-16 md:pb-24">
+    <p class="text-xs text-zinc-500 dark:text-zinc-400 tracking-widest uppercase font-medium pb-8">
+      Última actualización: {legal.lastUpdated}
+    </p>
+
+    <!-- Resumen -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pb-10">
+      {highlights.map(({ icon: Icon, title, description }) => (
+        <div class="p-6 bg-zinc-50 border border-zinc-200 rounded-xl space-y-3 dark:bg-zinc-900/30 dark:border-zinc-900">
+          <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+            <Icon class="w-5 h-5" />
+          </div>
+
+          <h3 class="text-base font-bold text-zinc-900 dark:text-white tracking-tight">{title}</h3>
+
+          <p class="text-sm text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">{description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="divide-y divide-zinc-200 dark:divide-zinc-900 border-y border-zinc-200 dark:border-zinc-900">
+      <LegalSection title="1. Responsable del tratamiento" id="responsable">
+        <p>
+          Conforme al Reglamento (UE) 2016/679 (RGPD) y a la Ley Orgánica 3/2018 (LOPDGDD), el responsable del
+          tratamiento de tus datos personales es:
+        </p>
+        <ul>
+          <li><strong>Titular:</strong> {legal.owner}</li>
+          <li><strong>NIF / CIF:</strong> {legal.taxId}</li>
+          <li><strong>Domicilio:</strong> {legal.address}</li>
+          <li><strong>Correo electrónico:</strong> <a href={`mailto:${legal.email}`}>{legal.email}</a></li>
+        </ul>
+      </LegalSection>
+
+      <LegalSection title="2. Qué datos tratamos y para qué" id="datos">
+        <p>
+          <strong>Datos de contacto.</strong> Si nos escribes por correo electrónico o mediante el formulario de
+          contacto, trataremos los datos que nos facilites: nombre, correo electrónico, empresa o marca, tipo de
+          proyecto, presupuesto orientativo y el contenido de tu mensaje.
+        </p>
+        <ul>
+          <li>
+            <strong>Finalidad:</strong> atender tu consulta, valorar tu proyecto y, en su caso, prepararte una propuesta.
+          </li>
+          <li>
+            <strong>Base jurídica:</strong> la aplicación de medidas precontractuales a petición tuya (art. 6.1.b RGPD)
+            y nuestro interés legítimo en responder a las comunicaciones que nos envías (art. 6.1.f RGPD).
+          </li>
+          <li>
+            <strong>Conservación:</strong> durante el tiempo necesario para atender tu solicitud. Si no llega a
+            formalizarse ninguna relación, los eliminamos pasados {legal.contactRetentionMonths} meses desde el último
+            contacto. Si se formaliza, los conservaremos mientras dure la relación y, después, bloqueados durante los
+            plazos legales aplicables.
+          </li>
+        </ul>
+        <p>
+          <strong>Datos técnicos de conexión.</strong> Como en cualquier sitio web, el servidor que aloja esta página
+          puede registrar temporalmente datos técnicos de cada visita (dirección IP, fecha y hora, página solicitada,
+          navegador) con fines de seguridad y correcto funcionamiento. No los utilizamos para identificarte ni para
+          elaborar perfiles.
+        </p>
+        <p>No es obligatorio facilitarnos datos, pero sin ellos no podremos responder a tu consulta.</p>
+      </LegalSection>
+
+      <LegalSection title="3. Cookies y almacenamiento local" id="cookies">
+        <p>
+          Este sitio <strong>no utiliza cookies</strong>, ni propias ni de terceros. Por eso no mostramos ningún banner de
+          cookies.
+        </p>
+        <p>
+          Lo único que guardamos en tu navegador es tu preferencia de tema (claro u oscuro), en el almacenamiento local
+          (<code class="text-sm">localStorage</code>), bajo el nombre <code class="text-sm">theme</code>. Solo se crea cuando
+          pulsas el botón de cambio de tema, se queda en tu dispositivo, no se envía a nuestros servidores y no se usa
+          para identificarte ni hacerte seguimiento. Por su finalidad, no requiere consentimiento. Puedes borrarlo en
+          cualquier momento desde los ajustes de tu navegador.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="4. Servicios de terceros" id="terceros">
+        <p>
+          No integramos analítica, publicidad, redes sociales, mapas ni vídeos de terceros. La única excepción son las
+          tipografías: el sitio carga la fuente <em>Poppins</em> desde Google Fonts. Para ello, tu navegador se conecta a
+          los servidores de Google (<code class="text-sm">fonts.googleapis.com</code> y <code class="text-sm">fonts.gstatic.com</code>),
+          que reciben tu dirección IP y los datos técnicos habituales de cualquier petición web. No instalamos cookies
+          para esto, pero Google trata esos datos conforme a su propia{" "}
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">política de privacidad</a>.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="5. Destinatarios y transferencias" id="destinatarios">
+        <p>
+          No vendemos ni cedemos tus datos a terceros, salvo obligación legal. Para prestar el servicio nos apoyamos en
+          proveedores que actúan como encargados del tratamiento y solo acceden a los datos para ese fin, como el
+          alojamiento web ({legal.hosting}) y el servicio de correo electrónico.
+        </p>
+        <p>
+          Si alguno de estos proveedores tratara datos fuera del Espacio Económico Europeo, lo haría con las garantías
+          que exige el RGPD (decisiones de adecuación de la Comisión Europea o cláusulas contractuales tipo).
+        </p>
+      </LegalSection>
+
+      <LegalSection title="6. Decisiones automatizadas" id="automatizadas">
+        <p>No tomamos decisiones automatizadas ni elaboramos perfiles a partir de tus datos.</p>
+      </LegalSection>
+
+      <LegalSection title="7. Tus derechos" id="derechos">
+        <p>Puedes ejercer en cualquier momento los siguientes derechos sobre tus datos personales:</p>
+        <ul>
+          <li>Acceso, para saber qué datos tuyos tratamos.</li>
+          <li>Rectificación de datos inexactos o incompletos.</li>
+          <li>Supresión de tus datos cuando ya no sean necesarios.</li>
+          <li>Oposición y limitación del tratamiento en los casos previstos por la ley.</li>
+          <li>Portabilidad de los datos que nos hayas facilitado.</li>
+        </ul>
+        <p>
+          Para ejercerlos, escríbenos a <a href={`mailto:${legal.email}`}>{legal.email}</a> indicando el derecho que
+          quieres ejercer y acreditando tu identidad. Te responderemos en el plazo máximo de un mes.
+        </p>
+        <p>
+          Si consideras que no hemos tratado tus datos correctamente, puedes presentar una reclamación ante la Agencia
+          Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>).
+        </p>
+      </LegalSection>
+
+      <LegalSection title="8. Seguridad" id="seguridad">
+        <p>
+          Aplicamos medidas técnicas y organizativas adecuadas para proteger tus datos, entre ellas la conexión cifrada
+          (HTTPS) al sitio y el acceso restringido a la información que nos envías.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="9. Menores de edad" id="menores">
+        <p>
+          Este sitio está dirigido a empresas y profesionales. No tratamos de forma consciente datos de menores de 14
+          años; si crees que un menor nos ha enviado sus datos, escríbenos y los eliminaremos.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="10. Cambios en esta política" id="cambios">
+        <p>
+          Si cambiamos algo relevante (por ejemplo, si algún día incorporásemos analítica o cookies), actualizaremos esta
+          página y su fecha de última actualización. Puedes consultar también nuestros{" "}
+          <a href="/terms">Términos y condiciones</a>.
+        </p>
+      </LegalSection>
+    </div>
+  </div>
+</Layout>

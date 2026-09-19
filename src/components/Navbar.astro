@@ -1,4 +1,9 @@
 ---
+import Menu from "@lucide/astro/icons/menu";
+import Moon from "@lucide/astro/icons/moon";
+import Sun from "@lucide/astro/icons/sun";
+import X from "@lucide/astro/icons/x";
+
 const navLinks = [
   { href: "/services", label: "Servicios" },
   { href: "/about", label: "Nosotros" },
@@ -37,12 +42,8 @@ const navLinks = [
         class="w-10 h-10 flex items-center justify-center text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors cursor-pointer"
         aria-label="Cambiar tema"
       >
-        <svg class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-        </svg>
-        <svg class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-        </svg>
+        <Moon class="w-5 h-5 hidden dark:block" />
+        <Sun class="w-5 h-5 dark:hidden" />
       </button>
 
       <!-- Mobile Menu Button -->
@@ -53,17 +54,18 @@ const navLinks = [
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
-        <div class="absolute w-6 h-5 flex flex-col justify-between items-center">
-          <span
-            id="menu-line-1"
-            class="h-0.5 w-full bg-current rounded transform transition-all duration-300 ease-in-out"
-          ></span>
-          <span id="menu-line-2" class="h-0.5 w-full bg-current rounded transition-all duration-300 ease-in-out"></span>
-          <span
-            id="menu-line-3"
-            class="h-0.5 w-full bg-current rounded transform transition-all duration-300 ease-in-out"
-          ></span>
-        </div>
+        <span
+          id="menu-icon-open"
+          class="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out"
+        >
+          <Menu class="w-6 h-6" />
+        </span>
+        <span
+          id="menu-icon-close"
+          class="absolute inset-0 flex items-center justify-center transition-all duration-300 ease-in-out opacity-0 -rotate-90 scale-50"
+        >
+          <X class="w-6 h-6" />
+        </span>
       </button>
     </div>
   </div>
@@ -98,9 +100,8 @@ const navLinks = [
   const initializeMobileMenu = () => {
     const button = document.getElementById("mobile-menu-button");
     const menu = document.getElementById("mobile-menu");
-    const line1 = document.getElementById("menu-line-1");
-    const line2 = document.getElementById("menu-line-2");
-    const line3 = document.getElementById("menu-line-3");
+    const iconOpen = document.getElementById("menu-icon-open");
+    const iconClose = document.getElementById("menu-icon-close");
 
     if (!button || !menu || button.dataset.menuReady) return;
 
@@ -113,12 +114,12 @@ const navLinks = [
       menu.classList.toggle("opacity-100", isOpen);
       menu.classList.toggle("border-zinc-200", isOpen);
       menu.classList.toggle("dark:border-zinc-900", isOpen);
-      line1?.classList.toggle("rotate-45", isOpen);
-      line1?.classList.toggle("translate-y-2.25", isOpen);
-      line2?.classList.toggle("opacity-0", isOpen);
-      line2?.classList.toggle("scale-0", isOpen);
-      line3?.classList.toggle("-rotate-45", isOpen);
-      line3?.classList.toggle("-translate-y-2.25", isOpen);
+      iconOpen?.classList.toggle("opacity-0", isOpen);
+      iconOpen?.classList.toggle("rotate-90", isOpen);
+      iconOpen?.classList.toggle("scale-50", isOpen);
+      iconClose?.classList.toggle("opacity-0", !isOpen);
+      iconClose?.classList.toggle("-rotate-90", !isOpen);
+      iconClose?.classList.toggle("scale-50", !isOpen);
     };
 
     button.addEventListener("click", () => {
